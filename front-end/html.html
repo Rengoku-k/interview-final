@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HAPPY BIRTHDAY</title>
+</head>
+<body>
+
+    <div style=" margin-top:250px;margin-left: 700px;margin-right: 500px;height: 100px;width: 100px;" >
+        <img src="interview.jpg" alt="Italian Trulli" style="height: 300px">
+        <h3><span id="random-number"></span> years old!</h3>
+        <h5>HAPPY BIRTHDAY</h5>
+        <button onClick="window.location.reload();">Refresh Page</button>
+    </div>
+    <script>
+        // Make a request to the API and update the HTML element with the random number
+        fetch('http://localhost:3000/random')
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById('random-number').textContent = data.number;
+          })
+          .catch((error) => {
+            console.log('Error:', error);
+          });
+      </script>
+
+</body>
+</html>
